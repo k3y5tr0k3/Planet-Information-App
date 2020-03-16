@@ -1,10 +1,12 @@
+package com.challenge;
 
-package com.callenge;
+import java.nio.file.FileSystems;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        String projectDir = FileSystems.getDefault().getPath("").toAbsolutePath().toString();
         System.out.println("Hello World!");
 
         // TODO: Configuration
