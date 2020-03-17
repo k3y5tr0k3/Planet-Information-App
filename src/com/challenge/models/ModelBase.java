@@ -1,19 +1,27 @@
 package com.challenge.models;
 
-public abstract class BaseModel {
+public abstract class ModelBase {
 
+    private int id;
     private String name;
     private String description;
     private int radius;
-    private int[] temperatureRange;
     private int forceOfGravity;
 
-    public BaseModel(String name, String description, int radius, int[] temperatureRange, int forceOfGravity) {
+    public ModelBase(int id, String name, String description, int radius, int forceOfGravity) {
+        this.id               = id;
         this.name             = name;
         this.description      = description;
         this.radius           = radius;
-        this.temperatureRange = temperatureRange;
         this.forceOfGravity   = forceOfGravity;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setName(String name) {
@@ -32,14 +40,12 @@ public abstract class BaseModel {
         return this.description;
     }
 
-    public void setTemperatureRange(int min, int max) {
-        this.temperatureRange    = new int[2];
-        this.temperatureRange[0] = min;
-        this.temperatureRange[1] = max;
+    public int getRadius() {
+        return radius;
     }
 
-    public int[] getTemperatureRange() {
-        return this.temperatureRange;
+    public void setRadius(int radius) {
+        this.radius = radius;
     }
 
     public void setForceOfGravity(int forceOfGravity) {

@@ -1,4 +1,14 @@
-package com.challenge.views.interfaces;
+package com.challenge.views;
 
-public class MenuView {
+public class MenuView implements IView {
+
+    @Override
+    public void getConsoleDimensions() {
+
+    }
+
+    @Override
+    public void display() {
+
+    }
 }
