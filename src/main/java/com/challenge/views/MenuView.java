@@ -5,10 +5,10 @@ public class MenuView implements IView {
     private static final String[] template = {
             "\r****************************  Planet Info App  ****************************\n\n\n",
             "\tMain Menu:\n\n",
-            "\t\t1. Planets\n",
-            "\t\t2. About\n",
-            "\t\t3. Help\n",
-            "\t\t0. Exit\n"
+            "\t\t[1] Planets\n",
+            "\t\t[2] About\n",
+            "\t\t[3] Help\n",
+            "\t\t[0] Exit\n"
     };
 
     public static void render() {

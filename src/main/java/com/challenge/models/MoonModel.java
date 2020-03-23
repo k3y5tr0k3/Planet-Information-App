@@ -11,6 +11,7 @@ public class MoonModel extends ModelBase {
                      int forceOfGravity,
                      int distanceFromHostPlanet) {
         super(id, name, description, radius, forceOfGravity);
+
         this.distanceFromHostPlanet = distanceFromHostPlanet;
     }
 

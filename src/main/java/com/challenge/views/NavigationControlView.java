@@ -4,23 +4,23 @@ public class NavigationControlView implements IView {
 
     private static String[] menuTemplate = {
             "\n____________________________________________________________________________\n\n",
-            "\tEsc = MainMenu\n",
+            "\t[0] MainMenu\n",
             "____________________________________________________________________________\n"
     };
 
     private static String[] planetTemplate = {
             "\n____________________________________________________________________________\n\n",
-            "\tESC = MainMenu\t\t\tENTER = View Moons\n",
+            "\t[0] MainMenu\t\t\t[1] View Moons\n",
             "____________________________________________________________________________\n"
     };
 
     private static String[] moonTemplate = {
             "\n____________________________________________________________________________\n\n",
-            "\tESC = MainMenu\t\tLEFT_ARROW = prev\tRIGHT_ARROW = next\n",
+            "\t[0] MainMenu\t\t[1] Prev\t[2] Next\n",
             "____________________________________________________________________________\n"
     };
 
-    public static String render(String template) {
+    protected static String render(String template) {
         String[] choice = new String[3];
 
         switch (template) {
@@ -35,6 +35,6 @@ public class NavigationControlView implements IView {
                 break;
         }
 
-        return String.join(" ", template);
+        return String.join(" ", choice);
     }
 }

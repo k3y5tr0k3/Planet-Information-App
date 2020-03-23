@@ -13,7 +13,7 @@ public class MoonView implements IView {
             "\tGravity: %s\n\n\n\n"
     };
 
-    private static void render(MoonModel moon) {
+    public static void render(MoonModel moon) {
         String[] info = new String[] {
                 moon.getName(),
                 moon.getDescription(),

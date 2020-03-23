@@ -2,7 +2,7 @@ package com.challenge.views;
 
 import com.challenge.models.PlanetModel;
 
-public abstract class PlanetView implements IView {
+public class PlanetView implements IView {
 
     private static String[] template = {
             "\r****************************  Planet Info App  ****************************\n\n\n",
@@ -16,7 +16,7 @@ public abstract class PlanetView implements IView {
             "Hospitable: %s\t\tKnown Moons: %s\n"
     };
 
-    private static void render(PlanetModel planet) {
+    public static void render(PlanetModel planet) {
         String[] info = new String[] {
                 planet.getName(),
                 planet.getDescription(),

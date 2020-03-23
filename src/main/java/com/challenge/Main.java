@@ -2,6 +2,7 @@ package com.challenge;
 
 import com.challenge.controllers.MoonController;
 import com.challenge.services.InitializationService;
+import com.challenge.views.AboutView;
 
 public class Main {
 
@@ -11,5 +12,6 @@ public class Main {
 
         InitializationService.initialize();
 
+        AboutView.render();
     }
 }

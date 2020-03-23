@@ -1,47 +1,57 @@
 package com.challenge.services;
 
-import com.challenge.views.Page;
+import com.challenge.models.MoonModel;
+import com.challenge.models.PlanetModel;
+import com.challenge.views.MenuView;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
 
 public class NavigationService {
 
-    public static void display(Page page) {
+    // Available planets to navigate
+    private ArrayList<PlanetModel> planets;
 
-        switch(page) {
-            case MENU:
-                displayMainMenu();
+    // moons belonging to the current planet
+    private ArrayList<MoonModel> tempMoons;
+
+    protected void configure(ArrayList<PlanetModel> planets) {
+        this.planets = planets;
+    }
+
+    public void start() {}
+
+    private void mainMenu() {
+        MenuView.render();
+
+        int result = getInput();
+
+        switch (result) {
+            case 0:
+                System.exit(0);
                 break;
-            case PLANETS:
-                displayPlanetMenu();
+            case 1:
+                planetMenu(planets);
                 break;
-            case MOONS:
-                displayMoonMenu();
+            case 2:
+                viewAbout();
                 break;
-            case ABOUT:
-                displayAbout();
-                break;
-            case HELP:
-                displayHelp();
-                break;
+            case 3:
+
         }
     }
 
-    private static void displayMainMenu() {
+    private void viewPlanet(PlanetModel planet) {}
 
-    }
+    private void planetMenu() {}
 
-    private static void displayMoonMenu() {
+    private void viewMoon() {}
 
-    }
+    private void viewAbout() {}
 
-    private static void displayPlanetMenu() {
-
-    }
-
-    private static void displayHelp() {
-
-    }
-
-    private static void displayAbout() {
-
+    private int getInput() {
+        Scanner sc = new Scanner();
+        return sc.nextInt();
     }
 }
