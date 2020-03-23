@@ -1,6 +1,5 @@
 package com.challenge.controllers;
 
-import com.challenge.models.MoonModel;
 import com.challenge.models.PlanetModel;
 import com.challenge.utils.DatabaseService;
 
@@ -10,21 +9,23 @@ import java.util.ArrayList;
 
 public class PlanetController {
 
-    public static ArrayList<PlanetModel> getPlanets() {
+    private final static String query = "Select * FROM planets;";
 
-        String query = "Select * FROM planets";
-
-        DatabaseService dataService = new DatabaseService();
-        ResultSet results = dataService.select(query);
-
-        return objectify(results);
-    }
+//    public static ArrayList<PlanetModel> getPlanets() {
+//        DatabaseService dataService = new DatabaseService();
+//        //ResultSet results = dataService.select(query);
+//        //System.out.println(results);
+//        //ArrayList<PlanetModel> planets = objectify(results);
+//        dataService.destroy();
+//        return planets;
+//    }
 
     private static ArrayList<PlanetModel> objectify(ResultSet results) {
-        ArrayList<PlanetModel> moons = new ArrayList<>();
+        ArrayList<PlanetModel> planets = new ArrayList();
         try {
+            System.out.printf(results.toString());
             while (results.next()){
-                PlanetModel moon = new PlanetModel(
+                PlanetModel planet = new PlanetModel(
                         results.getInt(         "planet_id"),
                         results.getString(      "name"),
                         results.getString(      "description"),
@@ -37,12 +38,13 @@ public class PlanetController {
                         results.getInt(         "length_of_day"),
                         results.getInt(         "number_of_moons")
                 );
-                moons.add(moon);
+                System.out.println(planet.getName());
+                planets.add(planet);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
-        return moons;
+        return planets;
     }
 }

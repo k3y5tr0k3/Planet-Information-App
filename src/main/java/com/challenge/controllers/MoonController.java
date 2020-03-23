@@ -10,18 +10,20 @@ import java.util.ArrayList;
 
 public class MoonController {
 
-    public static ArrayList<MoonModel> getMoons(PlanetModel planet) {
+    private final static String baseQuery = "Select * FROM moons WHERE host_id = ";
 
-        String query = "Select * FROM moons WHERE host_id =" + planet.getId();
-
-        DatabaseService dataService = new DatabaseService();
-        ResultSet results = dataService.select(query);
-
-        return objectify(results);
-    }
+//    public static ArrayList<MoonModel> getMoons(PlanetModel planet) {
+//
+//        final String query = baseQuery + planet.getId();
+//
+//        DatabaseService dataService = new DatabaseService();
+//        dataService.select(query);
+//
+//        return objectify(results);
+//    }
 
     private static ArrayList<MoonModel> objectify(ResultSet results) {
-        ArrayList<MoonModel> moons = new ArrayList<>();
+        ArrayList<MoonModel> moons = new ArrayList();
         try {
             while (results.next()){
                 MoonModel moon = new MoonModel(
