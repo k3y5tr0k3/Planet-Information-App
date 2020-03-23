@@ -24,3 +24,6 @@ hs_err_pid*
 
 # intellij config
 .idea/
+
+# maven build output
+target/
