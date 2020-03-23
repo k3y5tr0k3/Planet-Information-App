@@ -31,6 +31,7 @@ public class DatabaseService {
         } catch (SQLException e) {
             LoggingService.log(e.toString());
         }
+
         return null;
     }
 
@@ -46,7 +47,6 @@ public class DatabaseService {
     }
 
     public ResultSet select(String query) {
-
         final Connection conn = this.create();
 
         try {
@@ -57,6 +57,7 @@ public class DatabaseService {
         } catch (SQLException e) {
             LoggingService.log(e.toString());
         }
+
         return null;
     }
 }
