@@ -1,54 +1,22 @@
 package com.challenge.views;
 
-public class MenuView {
+public class MenuView implements IView {
 
-    private static final String[] mainMenuPage = {
-            "1. Browse",
-            "2. Facts",
-            "3. About",
-            "4. Help",
-            "5. Exit"
+    private static final String[] template = {
+            "\r****************************  Planet Info App  ****************************\n\n\n",
+            "\tMain Menu:\n\n",
+            "\t\t1. Planets\n",
+            "\t\t2. About\n",
+            "\t\t3. Help\n",
+            "\t\t0. Exit\n"
     };
 
-    public static void display(Page page) {
+    public static void render() {
+        String temp = String.join(" ", template);
+        temp += NavigationControlView.render("menu");
 
-        switch(page) {
-            case MENU:
-                displayMainMenu();
-                break;
-            case PLANETS:
-                displayPlanetMenu();
-                break;
-            case MOONS:
-                displayMoonMenu();
-                break;
-            case ABOUT:
-                displayAbout();
-                break;
-            case HELP:
-                displayHelp();
-                break;
-        }
+        System.out.println(temp);
+
+        return;
     }
-
-    private static void displayMainMenu() {
-
-    }
-
-    private static void displayMoonMenu() {
-
-    }
-
-    private static void displayPlanetMenu() {
-
-    }
-
-    private static void displayHelp() {
-
-    }
-
-    private static void displayAbout() {
-
-    }
-
 }

@@ -1,8 +1,8 @@
-package com.challenge.utils;
+package com.challenge.services;
 
-import java.io.File;
+import com.challenge.utils.ProjectDirectory;
+
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.logging.*;
 
 public class LoggingService {

@@ -1,16 +1,12 @@
-package com.challenge.utils;
+package com.challenge.services;
 
-import com.challenge.utils.LoggingService;
+import com.challenge.utils.ProjectDirectory;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.sql.Driver;
-import java.util.ArrayList;
-import java.util.HashSet;
 
 public class DatabaseService {
 

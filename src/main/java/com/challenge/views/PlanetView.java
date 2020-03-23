@@ -1,13 +1,40 @@
 package com.challenge.views;
 
-public abstract class ModelView implements IView {
+import com.challenge.models.PlanetModel;
 
-    private static final String[] template = {
+public abstract class PlanetView implements IView {
+
+    private static String[] template = {
             "\r****************************  Planet Info App  ****************************\n\n\n",
-            ""
+            "\tName: %s\n\n",
+            "\tDescription:\n",
+            "\t%s",
+            "\tRadius: %s km\tDistance from earth: %s million km\n",
+            "\tTemperature Range (celsius):\n",
+            "\t\tMin: %s\t\tMax: %s\n",
+            "\tGravity: %s\t\tLength of day: %s\n",
+            "Hospitable: %s\t\tKnown Moons: %s\n"
     };
 
-    public static String getTemplate() {
-        return String.join(" ", template);
+    private static void render(PlanetModel planet) {
+        String[] info = new String[] {
+                planet.getName(),
+                planet.getDescription(),
+                planet.getRadius() + "",
+                planet.getDistanceFromEarth() + "",
+                planet.getTemperatureRange()[0] + "",
+                planet.getTemperatureRange()[1] + "",
+                planet.getForceOfGravity() + "",
+                planet.getLenghtOfDay() + "",
+                planet.getIsHospitable() + "",
+                planet.getNumberOfMoons() + ""
+        };
+
+        String temp = String.join(" ", template);
+        temp += NavigationControlView.render("planet");
+
+        System.out.printf(temp, info);
+
+        return;
     }
 }

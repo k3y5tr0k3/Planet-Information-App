@@ -1,10 +1,10 @@
-package com.challenge.utils;
+package com.challenge.services;
 
-import java.io.File;
+import com.challenge.utils.ProjectDirectory;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.logging.LogManager;
 
 public class InitializationService {
 

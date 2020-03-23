@@ -1,7 +1,7 @@
 package com.challenge.controllers;
 
 import com.challenge.models.PlanetModel;
-import com.challenge.utils.DatabaseService;
+import com.challenge.services.DatabaseService;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,19 +11,18 @@ public class PlanetController {
 
     private final static String query = "Select * FROM planets;";
 
-//    public static ArrayList<PlanetModel> getPlanets() {
-//        DatabaseService dataService = new DatabaseService();
-//        //ResultSet results = dataService.select(query);
-//        //System.out.println(results);
-//        //ArrayList<PlanetModel> planets = objectify(results);
-//        dataService.destroy();
-//        return planets;
-//    }
+    public static ArrayList<PlanetModel> getPlanets() {
+        DatabaseService dataService = new DatabaseService();
+        ResultSet results = dataService.select(query);
+        ArrayList<PlanetModel> planets = objectify(results);
+        dataService.destroy();
+
+        return planets;
+    }
 
     private static ArrayList<PlanetModel> objectify(ResultSet results) {
         ArrayList<PlanetModel> planets = new ArrayList();
         try {
-            System.out.printf(results.toString());
             while (results.next()){
                 PlanetModel planet = new PlanetModel(
                         results.getInt(         "planet_id"),
@@ -38,7 +37,6 @@ public class PlanetController {
                         results.getInt(         "length_of_day"),
                         results.getInt(         "number_of_moons")
                 );
-                System.out.println(planet.getName());
                 planets.add(planet);
             }
         } catch (SQLException e) {

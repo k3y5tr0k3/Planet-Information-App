@@ -2,7 +2,7 @@ package com.challenge.controllers;
 
 import com.challenge.models.MoonModel;
 import com.challenge.models.PlanetModel;
-import com.challenge.utils.DatabaseService;
+import com.challenge.services.DatabaseService;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,15 +12,16 @@ public class MoonController {
 
     private final static String baseQuery = "Select * FROM moons WHERE host_id = ";
 
-//    public static ArrayList<MoonModel> getMoons(PlanetModel planet) {
-//
-//        final String query = baseQuery + planet.getId();
-//
-//        DatabaseService dataService = new DatabaseService();
-//        dataService.select(query);
-//
-//        return objectify(results);
-//    }
+    public static ArrayList<MoonModel> getMoons(PlanetModel planet) {
+        final String query = baseQuery + planet.getId();
+
+        DatabaseService dataService = new DatabaseService();
+        ResultSet results = dataService.select(query);
+        ArrayList moons = objectify(results);
+        dataService.destroy();
+
+        return objectify(results);
+    }
 
     private static ArrayList<MoonModel> objectify(ResultSet results) {
         ArrayList<MoonModel> moons = new ArrayList();
