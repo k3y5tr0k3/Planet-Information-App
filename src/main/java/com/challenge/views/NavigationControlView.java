@@ -1,6 +1,12 @@
 package com.challenge.views;
 
-public class NavigationControlView implements IView {
+public class NavigationControlView {
+
+    private static String[] mainMenuTemplate = {
+            "\n____________________________________________________________________________\n\n",
+            "\t\n",
+            "____________________________________________________________________________\n"
+    };
 
     private static String[] menuTemplate = {
             "\n____________________________________________________________________________\n\n",
@@ -16,7 +22,7 @@ public class NavigationControlView implements IView {
 
     private static String[] moonTemplate = {
             "\n____________________________________________________________________________\n\n",
-            "\t[0] MainMenu\t\t[1] Prev\t[2] Next\n",
+            "\t[0] MainMenu\t[1] Back\t[2] Prev\t[3] Next\n",
             "____________________________________________________________________________\n"
     };
 
@@ -24,6 +30,9 @@ public class NavigationControlView implements IView {
         String[] choice = new String[3];
 
         switch (template) {
+            case "main":
+                choice = mainMenuTemplate;
+                break;
             case "menu":
                 choice = menuTemplate;
                 break;

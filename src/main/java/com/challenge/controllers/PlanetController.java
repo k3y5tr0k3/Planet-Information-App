@@ -33,7 +33,7 @@ public class PlanetController {
                         results.getInt(         "temperature_max"),
                         results.getInt(         "force_of_gravity"),
                         results.getInt(         "distance_from_earth"),
-                        results.getBoolean(     "isHospitable"),
+                        results.getBoolean(     "is_hospitable"),
                         results.getInt(         "length_of_day"),
                         results.getInt(         "number_of_moons")
                 );

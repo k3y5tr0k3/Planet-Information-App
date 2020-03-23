@@ -23,7 +23,7 @@ public class LoggingService {
             e.printStackTrace();
         }
 
-        logger.info("Logging configured!");
+        LoggingService.log("LoggingService: Configured");
     }
 
     public static void log(Object caller, String message) {

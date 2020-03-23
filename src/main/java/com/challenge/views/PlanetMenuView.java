@@ -4,7 +4,7 @@ import com.challenge.models.PlanetModel;
 
 import java.util.ArrayList;
 
-public class PlanetMenuView implements IView {
+public class PlanetMenuView {
 
     private static String[] template = {
             "\r****************************  Planet Info App  ****************************\n\n\n",
@@ -25,7 +25,5 @@ public class PlanetMenuView implements IView {
         }
 
         System.out.printf(temp, menu.toString());
-
-        return;
     }
 }

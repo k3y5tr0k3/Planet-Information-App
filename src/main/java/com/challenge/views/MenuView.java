@@ -1,6 +1,6 @@
 package com.challenge.views;
 
-public class MenuView implements IView {
+public class MenuView {
 
     private static final String[] template = {
             "\r****************************  Planet Info App  ****************************\n\n\n",
@@ -13,10 +13,8 @@ public class MenuView implements IView {
 
     public static void render() {
         String temp = String.join(" ", template);
-        temp += NavigationControlView.render("menu");
+        temp += NavigationControlView.render("main");
 
         System.out.println(temp);
-
-        return;
     }
 }

@@ -15,6 +15,8 @@ public class DatabaseService {
 
     protected static void configure(String dbName) {
         connectionString =  "jdbc:sqlite:"  + ProjectDirectory.get() + dbName;
+
+        LoggingService.log("DataService: Configured");
     }
 
     public Connection create() {

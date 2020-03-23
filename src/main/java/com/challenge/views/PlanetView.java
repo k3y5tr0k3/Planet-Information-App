@@ -2,7 +2,7 @@ package com.challenge.views;
 
 import com.challenge.models.PlanetModel;
 
-public class PlanetView implements IView {
+public class PlanetView {
 
     private static String[] template = {
             "\r****************************  Planet Info App  ****************************\n\n\n",
@@ -34,7 +34,5 @@ public class PlanetView implements IView {
         temp += NavigationControlView.render("planet");
 
         System.out.printf(temp, info);
-
-        return;
     }
 }

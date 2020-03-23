@@ -2,7 +2,7 @@ package com.challenge.views;
 
 import com.challenge.models.MoonModel;
 
-public class MoonView implements IView {
+public class MoonView {
 
     private static String[] template = {
             "\r****************************  Planet Info App  ****************************\n\n\n",
@@ -26,7 +26,5 @@ public class MoonView implements IView {
         temp += NavigationControlView.render("moon");
 
         System.out.printf(temp, info);
-
-        return;
     }
 }
