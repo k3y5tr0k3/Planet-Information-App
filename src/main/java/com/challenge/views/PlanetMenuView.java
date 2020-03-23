@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class PlanetMenuView {
 
     private static String[] template = {
-            "\r****************************  Planet Info App  ****************************\n\n\n",
+            "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n****************************  Planet Info App  ****************************\n\n\n",
             "\tPlanets:\n\n",
             "%s"
     };
@@ -23,6 +23,8 @@ public class PlanetMenuView {
                     .append(planet.getName())
                     .append("\n");
         }
+
+        temp += NavigationControlView.render("menu");
 
         System.out.printf(temp, menu.toString());
     }

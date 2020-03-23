@@ -5,11 +5,12 @@ import com.challenge.models.MoonModel;
 public class MoonView {
 
     private static String[] template = {
-            "\r****************************  Planet Info App  ****************************\n\n\n",
+            "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n****************************  Planet Info App  ****************************\n\n\n",
             "\tName: %s\n\n",
             "\tDescription:\n",
             "\t\t%s\n",
-            "\tRadius: %s km\tDistance from host: %s km\n",
+            "\tRadius: %s km\n",
+            "\tDistance from host: %s km\n",
             "\tGravity: %s\n\n\n\n"
     };
 

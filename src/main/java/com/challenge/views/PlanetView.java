@@ -5,15 +5,18 @@ import com.challenge.models.PlanetModel;
 public class PlanetView {
 
     private static String[] template = {
-            "\r****************************  Planet Info App  ****************************\n\n\n",
+            "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n****************************  Planet Info App  ****************************\n\n\n",
             "\tName: %s\n\n",
             "\tDescription:\n",
-            "\t%s",
-            "\tRadius: %s km\tDistance from earth: %s million km\n",
+            "\t%s\n",
+            "\tRadius: %s km\n",
+            "\tDistance from earth: %s million km\n",
             "\tTemperature Range (celsius):\n",
             "\t\tMin: %s\t\tMax: %s\n",
-            "\tGravity: %s\t\tLength of day: %s\n",
-            "Hospitable: %s\t\tKnown Moons: %s\n"
+            "\tGravity: %s\n",
+            "\tLength of day: %s\n",
+            "\tHospitable: %s\n",
+            "\tKnown Moons: %s\n"
     };
 
     public static void render(PlanetModel planet) {

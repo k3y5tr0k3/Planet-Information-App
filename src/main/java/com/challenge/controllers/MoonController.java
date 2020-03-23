@@ -20,7 +20,7 @@ public class MoonController {
         ArrayList moons = objectify(results);
         dataService.destroy();
 
-        return objectify(results);
+        return moons;
     }
 
     private static ArrayList<MoonModel> objectify(ResultSet results) {

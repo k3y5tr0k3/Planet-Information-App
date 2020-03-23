@@ -3,7 +3,7 @@ package com.challenge.views;
 public class AboutView {
 
     private static String[] template = {
-            "\r****************************  Planet Info App  ****************************\n\n\n",
+            "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n****************************  Planet Info App  ****************************\n\n\n",
             "\tVersion: %s\n\n",
             "\tDescription: \n",
             "\t\tA simple Java console application for viewing information about\n",

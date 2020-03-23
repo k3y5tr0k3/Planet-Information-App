@@ -14,8 +14,6 @@ public class NavigationService {
 
     private ArrayList<PlanetModel> planets;
     private PlanetModel currentPlanet;
-    // lazy loaded moons
-    private ArrayList<MoonModel> tempMoons;
 
     protected void configure(ArrayList<PlanetModel> planets) {
         this.planets = planets;
@@ -28,8 +26,6 @@ public class NavigationService {
     }
 
     private void mainMenuView() {
-        clearScreen();
-
         MenuView.render();
 
         Integer[] options = new Integer[] {0, 1, 2, 3};
@@ -54,14 +50,14 @@ public class NavigationService {
     }
 
     private void planetView(PlanetModel planet) {
-        clearScreen();
-
-        tempMoons = null;
+        // lazy loaded moons
+        ArrayList<MoonModel> tempMoons = null;
         tempMoons = MoonController.getMoons(planet);
+        System.out.println(tempMoons.isEmpty());
 
         PlanetView.render(planet);
 
-        Integer[] options = new Integer[] {0, 1};
+        Integer[] options = new Integer[] {0, 1, 2};
         int result = getInput(
                 new ArrayList<Integer>(Arrays.asList(options))
         );
@@ -70,7 +66,12 @@ public class NavigationService {
             case 0:
                 mainMenuView();
                 break;
+
             case 1:
+                planetMenuView(planets);
+                break;
+
+            case 2:
                 if (planet.getNumberOfMoons() > 0) {
                     moonView(tempMoons);
                 }
@@ -79,8 +80,6 @@ public class NavigationService {
     }
 
     private void planetMenuView(ArrayList<PlanetModel> planets) {
-        clearScreen();
-
         PlanetMenuView.render(planets);
 
         Integer[] options = new Integer[] {0, 1, 2, 3, 4, 5, 6, 7, 8};
@@ -88,8 +87,13 @@ public class NavigationService {
                 new ArrayList<Integer>(Arrays.asList(options))
         );
 
+        if (result == 0) {
+            mainMenuView();
+        }
+
         for (PlanetModel planet : planets) {
             if (planet.getId() == result) {
+                currentPlanet = planet;
                 planetView(planet);
             }
         }
@@ -145,7 +149,7 @@ public class NavigationService {
     }
 
     private void helpView() {
-        clearScreen();
+        HelpView.render();
 
         Integer[] options = new Integer[] {0};
         int result = getInput(
@@ -163,18 +167,6 @@ public class NavigationService {
             if (options.contains(choice)) {
                 return choice;
             }
-        }
-    }
-
-    public static void clearScreen(){
-        try {
-            if (System.getProperty("os.name").contains("Windows")) {
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (IOException | InterruptedException ex) {
-            LoggingService.log(ex.getMessage());
         }
     }
 }
